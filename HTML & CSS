@@ -1,0 +1,77 @@
+<! doctype html> <!-- html for HFJ  battleship game -->
+<head>
+<meta charset = "utf -8" >
+<title> Battleship  </title>
+<style>  <!--start styling the page with some CSS -->
+body {
+background-color: black;  <!--background color of the page-->
+}
+div#board  {      /*style the id called board */
+position: relative; /* position is relative to webpage */
+width: 1024px;    /* board is centered in middle of  page */
+height: 863px;
+margin: auto;
+background: url ("board.jpg") no repeat /* add the picture of the board ontop of the black background on the web page */
+}
+div#messageArea {    /*the messageArea div which is inside the board div is positioned with absolute positioning*/
+position: absolute;
+top: opx;
+left: 0px;
+color: rgb(83, 175, 19);
+}
+.hit {  //create a hit class
+background: url("ship.png") no-repeat center center; /* the picture of the ship is centered */
+}
+.miss {  /*create a miss class */
+background: url("miss.png") no repeat center center;/* the picture of the word miss is centered */
+}
+
+table {
+position: absolute;
+left: 173px;
+top: 98px;
+border-spacing: 0px;
+}
+td {  /*style the table rows */
+width: 94px;
+height: 94px;
+}
+form {
+position: absolute;
+bottom: 0px;
+right: 0px;
+padding: 15px;
+background-color: rgb(83, 175, 19);
+}
+form input {    /*styling the input ids of the form */
+background-color: rgb(152, 207, 113);
+border-color: rgb(83, 175, 19);
+font-size: 1em;
+}
+
+</style>
+</head>   <!-- end of header -->
+
+<body> //start of body
+<div id= "board"> /* making the first division on the page whose unique id is called board */
+<div id ="messageArea"> </div>  /* the div with the id messageArea is nestled within the div with the id board */
+<table> /* make a table */
+<tr>  /* initiate rows of a table, 7 rows in total starting from the number 0 */
+<td id="00"> </td> <td id="01"> </td> <td id="02"> </td> <td id= "03> </td> <td id= "04> </td> <td id ="05"> </td> <td id= "06> </td>
+<td id="10"> </td> <td id="11"> </td> <td id="12"> </td> <td id= "13> </td> <td id= "14> </td> <td id ="15"> </td> <td id= "16> </td>
+<td id="20"> </td> <td id="21"> </td> <td id="22"> </td> <td id= "23> </td> <td id= "24> </td> <td id ="25"> </td> <td id= "26> </td>
+<td id="30"> </td> <td id="31"> </td> <td id="32"> </td> <td id= "33> </td> <td id= "34> </td> <td id ="35"> </td> <td id= "36> </td>
+<td id="40"> </td> <td id="41"> </td> <td id="42"> </td> <td id= "43> </td> <td id= "44> </td> <td id ="45"> </td> <td id= "46> </td>
+<td id="50"> </td> <td id="51"> </td> <td id="52"> </td> <td id= "53> </td> <td id= "54> </td> <td id ="55"> </td> <td id= "56> </td>
+<td id="60"> </td> <td id="61"> </td> <td id="62"> </td> <td id= "63> </td> <td id= "64> </td> <td id ="65"> </td> <td id= "66> </td>
+</tr>
+</table>
+<form> /* nestling a form with 2 types of input within the board div */
+<input type="text" id="guessInput" placeholder="A0">  /*the first input is a type of text for the user's guess at the postion A0 */
+<input type="button" id="fireButton" value="Fire!">  /*the 2nd input is a button to submit the guess */
+</form>
+</div>
+<script src = "battleship.js">  /* html will reference the battleship.js file which holds JS code */
+</script>
+</body>    <!--end of the body of the html page which holds style and div elements-->
+</html>
