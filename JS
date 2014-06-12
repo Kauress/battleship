@@ -1,0 +1,58 @@
+var view = {  //creating the view oject for the game
+displayMessage = function (msg)   // the displayMessage property is a fxn with msg as an argument
+var messageArea = document.getElementById("messageArea"); //  declare var whose value is the DOM div messageArea
+messageArea.innerHTML = msg;   // change the value of messageArea  to  msg
+},
+
+displayHit = function (location) {   // 2nd property of the view object is fxn displayHit
+var cell = document.getElementbyId (location)   //assign location to var cell
+cell.setAttribute ("class","hit");  //set the  class attribute of the var cell to hit
+},
+
+displayMiss = function(location) { //3rd property which is the displayMiss fxn
+var cell = document.getElementbyId (location) // assign locatio to var cell
+cell.setAttribute("class", "miss") //set the class  attribute of the cell to  miss
+}
+};
+
+// model object
+var model = {
+boardSize =7,
+numShips= 3,
+shipLength = 3,
+shipsSunk =0,
+var ships = [{locations: ["00","00","00"], hits: ["","",""] },    //this is the 2nd object, represents ships (loc & hits)
+{locations: ["00","00',"00"], hits: ["","",""] },
+{locations: ["00',"00","00"], hits: [""."",""]}
+}
+];
+fire: function (guess) {
+   for (var i=0; i<this.numShips;i++) {
+     var ship = this.ships [i];
+        var index = ship.locations.indexOf(guess);
+         if (index>=0) {
+           ship.hits[index] = "hit";
+            view.displayHit (guess);
+            view.displayMessage ("HIT");
+              if isSunk (ship) {
+                view.displayMessage ("You sank my battleship!");
+                 this.shipsSunk++;
+                 }
+                 return true;
+                 }
+        }
+        view.displayMiss(guess);
+        view.displayMessage( "You missed");
+          return false;
+    },
+    
+   isSunk: function (ship) {
+   for (var i = 0; i < this.shipLength; i++)  {
+   if (ship.hits[i] !== "hit") {
+      return false;
+      }
+    }
+    return true;
+
+}
+};
